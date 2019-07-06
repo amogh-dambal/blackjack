@@ -23,10 +23,12 @@ void Deck::shuffle()
     std::mt19937 RNG(dev());
 
     int j;
+    std::cout << "entering shuffle loop" << std::endl;
     for (int i = 0; i < 50; i++)
     {
-        std::uniform_int_distribution<int> engine(i, 53);
+        std::uniform_int_distribution<int> engine(i, 51);
         j = engine(RNG);
+        std::cout << j << std::endl;
 
         swap(i, j);
     }
