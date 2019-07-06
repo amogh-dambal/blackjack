@@ -25,9 +25,8 @@ class Card
 {
     public:
 
-    Card(Suit suit = Suit::SPADES, Value val = ACE) : suit(suit), val(val) {};
-
-    private:
+    Card(Suit suit = Suit::SPADES, 
+    Value val = ACE) : suit(suit), val(val) {};
 
     Suit suit;
     Value val;
