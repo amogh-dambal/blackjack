@@ -12,6 +12,8 @@ Deck::Deck()
         );
     }
 
+    std::cout << "entering shuffle function" << std::endl;
+
     this->shuffle();
 }
 
@@ -23,7 +25,7 @@ void Deck::shuffle()
     int j;
     for (int i = 0; i < 50; i++)
     {
-        std::uniform_int_distribution<int> engine(i, 52);
+        std::uniform_int_distribution<int> engine(i, 53);
         j = engine(RNG);
 
         swap(i, j);
@@ -32,9 +34,7 @@ void Deck::shuffle()
 
 const Card& Deck::next() 
 {
-    Card c = this->deck.back();
-    this->deck.pop_back();
-    return c;
+    return this->deck.back();
 }
 
 void Deck::swap(int i, int j)
