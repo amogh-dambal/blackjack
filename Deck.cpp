@@ -11,9 +11,6 @@ Deck::Deck()
             Card(static_cast<Suit>(suit), static_cast<Value>(val))
         );
     }
-
-    std::cout << "entering shuffle function" << std::endl;
-
     this->shuffle();
 }
 
@@ -23,20 +20,24 @@ void Deck::shuffle()
     std::mt19937 RNG(dev());
 
     int j;
-    std::cout << "entering shuffle loop" << std::endl;
     for (int i = 0; i < 50; i++)
     {
         std::uniform_int_distribution<int> engine(i, 51);
         j = engine(RNG);
-        std::cout << j << std::endl;
-
         swap(i, j);
     }
 }
 
-const Card& Deck::next() 
+const Card Deck::next() 
 {
-    return this->deck.back();
+    Card c = this->deck.back();
+    this->deck.pop_back();
+    return c;
+}
+
+const int Deck::size() const
+{
+    return this->deck.size();
 }
 
 void Deck::swap(int i, int j)

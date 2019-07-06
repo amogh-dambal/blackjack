@@ -1,8 +1,15 @@
+// dont touch these
+// they're used as 
+// array indexes for 
+// output
+#include <string>
+#include <iostream>
+
 enum class Suit { 
-    SPADES, 
-    HEARTS, 
-    DIAMONDS, 
-    CLUBS 
+    SPADE, 
+    HEART, 
+    DIAMOND, 
+    CLUB 
 };
 
 enum Value {
@@ -25,9 +32,41 @@ class Card
 {
     public:
 
-    Card(Suit suit = Suit::SPADES, 
+    Card(Suit suit = Suit::SPADE, 
     Value val = ACE) : suit(suit), val(val) {};
 
     Suit suit;
     Value val;
+
+    friend std::ostream& operator<<(std::ostream& out, const Card& card)
+    {
+        std::string suit_outputs[] = {
+            "SPADE",
+            "HEART",
+            "DIAMOND",
+            "CLUB"
+        };
+
+        std::string value_outputs[] = {
+            "0",
+            "A",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "J",
+            "Q",
+            "K"
+        };
+        
+        out << "(" << suit_outputs[static_cast<int>(card.suit)] << ", " 
+            << value_outputs[card.val] << ")";
+
+        return out;
+    };
 };

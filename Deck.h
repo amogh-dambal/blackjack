@@ -13,14 +13,14 @@ class Deck
     // need to write operators
 
     void shuffle();
-    const Card& next();
-    const int& size();
+    const Card next();
+    const int size() const;
 
     friend std::ostream& operator<<(std::ostream& out, Deck& d)
     {
         for (Card c : d.deck)
         {
-            out << "(" << static_cast<int>(c.suit) << ", " << c.val << ")" << std::endl;
+            out << c << std::endl;
         }
         return out;
     }
