@@ -1,5 +1,5 @@
-#include "Headers/Blackjack.h"
-#include "Headers/GameClient.h"
+#include "../include/Blackjack.h"
+#include "../include/GameClient.h"
 #include <iostream>
 
 int main(int argc, char** argv)
@@ -26,7 +26,7 @@ int main(int argc, char** argv)
     // if hit: 
     // deal card, update score
 
-    while (client.gameActive())
+    while (!client.gameOver())
     {
         while (client.promptPlayer() == 'h')
         {

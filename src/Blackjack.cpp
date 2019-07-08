@@ -1,4 +1,4 @@
-#include "Blackjack.h"
+#include "../include/Blackjack.h"
 
 Blackjack::Blackjack()
 {
@@ -11,7 +11,7 @@ void Blackjack::dealTo(Player& p)
     p.hand.at(1) = deck.next();
 }
 
-void Blackjack::showHand(const Player& p, PlayerType type) const
+void Blackjack::showHand(Player& p, PlayerType type)
 {
     if (type == PlayerType::House)
     {

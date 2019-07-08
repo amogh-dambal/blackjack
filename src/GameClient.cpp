@@ -1,16 +1,16 @@
-#include "GameClient.h"
+#include "../include/GameClient.h"
 
-GameClient::GameClient(const int num_players = 2) : players(num_players)
+GameClient::GameClient(const int num_players) : players(num_players)
 {
 
 }
 
-std::vector<Player> GameClient::loadPlayers() const
+std::vector<Player> GameClient::loadPlayers() 
 {
     return this->players;
 }
 
-const char promptPlayer(const int player = 1) const
+char promptPlayer(const int player)
 {
     std::string answerline;
     std::cout << "hit or stay?" << std::endl;
@@ -29,7 +29,7 @@ const char promptPlayer(const int player = 1) const
     return answerline[0];
 }
 
-bool GameClient::gameOver() const
+bool GameClient::gameOver()
 {
     for (Player p : players)
     {
