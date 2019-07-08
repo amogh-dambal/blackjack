@@ -2,6 +2,8 @@
 // they're used as 
 // array indexes for 
 // output
+#ifndef CARD_H
+#define CARD_H
 #include <string>
 #include <iostream>
 
@@ -70,3 +72,4 @@ class Card
         return out;
     };
 };
+#endif

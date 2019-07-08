@@ -1,6 +1,11 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include <utility>
+#include <vector>
+
+#include "Card.h"
+
 enum class PlayerType 
 {
     Human,
@@ -16,6 +21,7 @@ enum class Status
 
 class Player
 {
+    public:
     Player();
 
     std::pair<int, int> score() const;

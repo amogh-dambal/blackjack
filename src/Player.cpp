@@ -5,7 +5,7 @@ Player::Player() : status(Status::Under)
 
 }
 
-std::pair<int, int> score() const
+std::pair<int, int> Player::score() const
 {
     int sum = 0;
     int sum_ace = 0;

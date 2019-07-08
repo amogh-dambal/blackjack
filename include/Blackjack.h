@@ -12,7 +12,7 @@ public:
     Blackjack();
 
     void dealTo(Player& p);
-    void showHand(const Player& p, PlayerType type) const;
+    void showHand(Player& p, PlayerType type);
     void checkScore(Player& p);
     
 private:
