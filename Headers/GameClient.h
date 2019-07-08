@@ -1,5 +1,11 @@
 #include "Card.h"
 
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <cctype>
+#include <string>
+
 enum class GameState
 {
     InProgress,
@@ -8,18 +14,13 @@ enum class GameState
 class GameClient
 {
     public:
-    GameClient(int num_players = 2);
+    GameClient(const int num_players = 2);
 
     // void start();
     std::vector<Player> loadPlayers() const;  
     const char& promptPlayer(const int player = 1) const;
-    bool gameActive() 
-    {
-        for (Player p : players)
-        {
-            return (p.status != Status::Under);
-        }
-    }
+    bool gameOver() const;
+    
     
     private:
     std::vector<Player> players;
