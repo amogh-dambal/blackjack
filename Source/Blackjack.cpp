@@ -15,10 +15,24 @@ void Blackjack::showHand(const Player& p, PlayerType type) const
 {
     if (type == PlayerType::House)
     {
-
+        std::cout << p.hand.at(0);
     }
     else (type == PlayerType::Human)
     {
-        
+        std::cout << p.hand.at(0);
+        std::cout << p.hand.at(1);
+    }
+}
+
+void Blackjack::checkScore(Player& p)
+{
+    std::pair<int, int> score = p.score();
+    if (score.first > 21 || score.second > 21)
+    {
+        p.status = Status::Bust
+    }
+    else if (score.first == 21 || score.second == 21)
+    {
+        p.status = Status::Win;
     }
 }
