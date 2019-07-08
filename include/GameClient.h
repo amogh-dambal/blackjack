@@ -20,9 +20,9 @@ class GameClient
     GameClient(const int num_players = 2);
 
     // void start();
-    std::vector<Player> loadPlayers() const;  
-    const char& promptPlayer(const int player = 1) const;
-    bool gameOver() const;
+    std::vector<Player> loadPlayers();  
+    char promptPlayer();
+    bool gameOver();
     
     
     private:

@@ -10,14 +10,14 @@ std::vector<Player> GameClient::loadPlayers()
     return this->players;
 }
 
-char promptPlayer(const int player)
+char GameClient::promptPlayer()
 {
     std::string answerline;
     std::cout << "hit or stay?" << std::endl;
     
     std::cin >> answerline;
 
-    answerline = std::transform(
+    std::transform(
         answerline.begin(),
         answerline.end(),
         answerline.begin(),
@@ -35,4 +35,5 @@ bool GameClient::gameOver()
     {
         return (p.status != Status::Under);
     }
+    return false;
 }
