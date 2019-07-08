@@ -1,8 +1,6 @@
-#include "Blackjack.h"
-#include "GameClient.h"
+#include "Headers/Blackjack.h"
+#include "Headers/GameClient.h"
 #include <iostream>
-
-
 
 int main(int argc, char** argv)
 {

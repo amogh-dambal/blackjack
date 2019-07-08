@@ -1,3 +1,6 @@
+#ifndef BLACKJACK_H
+#define BLACKJACK_H
+
 #include "Deck.h"
 #include "Player.h"
 
@@ -16,3 +19,5 @@ private:
     Deck deck;
 
 };
+
+#endif

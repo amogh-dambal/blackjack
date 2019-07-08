@@ -1,4 +1,7 @@
-#include "Card.h"
+#ifndef GAME_CLIENT_H
+#define GAME_CLIENT_H
+
+#include "Player.h"
 
 #include <vector>
 #include <iostream>
@@ -27,3 +30,5 @@ class GameClient
     GameState state;
     
 };
+
+#endif

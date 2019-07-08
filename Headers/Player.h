@@ -1,3 +1,6 @@
+#ifndef PLAYER_H
+#define PLAYER_H
+
 enum class PlayerType 
 {
     Human,
@@ -22,3 +25,5 @@ class Player
     std::vector<Card> hand;
     
 };
+
+#endif
