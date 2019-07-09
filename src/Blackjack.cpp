@@ -30,16 +30,10 @@ void Blackjack::checkScore(Player& p)
     std::pair<int, int> score = p.score();
     if (score.first > 21 || score.second > 21)
     {
-        std::cout << "entered bust" << std::endl;
         p.status = Status::Bust;
-        std::cout << "changed status" << std::endl;
-        std::cout << "new status: " << static_cast<int>(p.status) << std::endl;
     }
     else if (score.first == 21 || score.second == 21)
     {
-        std::cout << "entered win" << std::endl;
         p.status = Status::Win;
     }
-
-    std::cout << "scores: " << score.first << " " << score.second << std::endl; 
 }

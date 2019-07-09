@@ -39,9 +39,6 @@ int main(int argc, char** argv)
             bj.dealTo(players[1]);
             bj.showHand(players[1], PlayerType::Human);
             bj.checkScore(players[1]);
-
-            std::cout << static_cast<int>(players[1].status) << std::endl;
-            std::cout << static_cast<int>(client.loadPlayers().at(1).status) << std::endl;
         }
 
         else if (ans == 'p')
