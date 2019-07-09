@@ -5,7 +5,7 @@ GameClient::GameClient(const int num_players) : players(num_players)
 
 }
 
-std::vector<Player> GameClient::loadPlayers() 
+std::vector<Player>& GameClient::loadPlayers() 
 {
     return this->players;
 }
@@ -31,9 +31,12 @@ char GameClient::promptPlayer()
 
 bool GameClient::gameOver()
 {
-    for (Player p : players)
+    for (const Player& p : players)
     {
-        return (p.status != Status::Under);
+        if (p.status != Status::Under)
+        {
+            return true;
+        }
     }
     return false;
 }

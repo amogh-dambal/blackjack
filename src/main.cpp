@@ -7,16 +7,20 @@ int main(int argc, char** argv)
     GameClient client;
     Blackjack bj;
 
-    std::vector<Player> players = client.loadPlayers();
+    std::vector<Player>& players = client.loadPlayers();
 
     // deal to player 1
     // deal to house
     bj.dealTo(players[0]);
     bj.dealTo(players[1]);
+    bj.dealTo(players[0]);
+    bj.dealTo(players[1]);
+
 
     // show player's cards
     // show house's card™
     bj.showHand(players[0], PlayerType::House);
+    std::cout << std::endl;
     bj.showHand(players[1], PlayerType::Human);
 
     // while score < 21:
@@ -28,12 +32,19 @@ int main(int argc, char** argv)
 
     while (!client.gameOver())
     {
-        while (client.promptPlayer() == 'h')
+        char ans = client.promptPlayer(); 
+
+        if (ans == 'h')
         {
             bj.dealTo(players[1]);
+            bj.showHand(players[1], PlayerType::Human);
             bj.checkScore(players[1]);
+
+            std::cout << static_cast<int>(players[1].status) << std::endl;
+            std::cout << static_cast<int>(client.loadPlayers().at(1).status) << std::endl;
         }
-        if (client.promptPlayer() == 'p')
+
+        else if (ans == 'p')
         {
             // implement AI here     
         }
