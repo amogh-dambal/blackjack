@@ -8,19 +8,16 @@ Player::Player() : status(Status::Under)
 std::pair<int, int> Player::score() const
 {
     int sum = 0;
-    int sum_ace = 0;
+    int ans;
     for (Card c : hand)
     {
         sum += static_cast<int>(c.val);
         if (c.val == ACE)
         {
-            sum_ace += 11;
+            std::cout << "1 or 11 points for the ACE?" << std::endl;
+            std::cin >> ans;
+            sum += ans;
         }
-        else
-        {
-            sum_ace += static_cast<int>(c.val);
-        }
-        
     }
-    return std::make_pair(sum, sum_ace);
+    return std::make_pair(sum, sum);
 }
