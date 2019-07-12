@@ -35,7 +35,7 @@ class Card
     public:
 
     Card(Suit suit = Suit::SPADE, 
-    Value val = ACE) : suit(suit), val(val) {};
+    Value val = ACE);
 
     Suit suit;
     Value val;
