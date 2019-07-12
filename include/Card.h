@@ -27,7 +27,7 @@ enum Value {
     TEN,
     JACK,
     QUEEN,
-    KING
+    KING,
 };
 
 class Card
@@ -37,8 +37,9 @@ class Card
     Card(Suit suit = Suit::SPADE, 
     Value val = ACE);
 
-    Suit suit;
-    Value val;
+    const int getPoints() const;
+    const Suit getSuit() const; 
+    const Value getValue() const;
 
     friend std::ostream& operator<<(std::ostream& out, const Card& card)
     {
@@ -71,5 +72,11 @@ class Card
 
         return out;
     };
+
+    private:
+    
+    Suit suit;
+    Value val;
+    int points;
 };
 #endif

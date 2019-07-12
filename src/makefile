@@ -20,4 +20,7 @@ blackjack: $(OBJ)
 
 clean:
 	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~
+	
+run:
+	./blackjack
 
