@@ -19,7 +19,7 @@ int main(int argc, char** argv)
 
     // show player's cards
     // show house's card™
-    bj.showHand(players[0], PlayerType::House);
+    bj.showHand(players[0], PlayerType::House, Turn::PreDeal);
     std::cout << std::endl;
     bj.showHand(players[1], PlayerType::Human);
 
@@ -43,8 +43,19 @@ int main(int argc, char** argv)
 
         else if (ans == 'p')
         {
-            // implement AI here     
+            while (players[0].status == Status::Under)
+            {
+                bj.checkScore(players[0]);
+                bj.dealTo(players[0]);
+                bj.showHand(players[0], PlayerType::House, Turn::PostPlayer); 
+                std::cout << std::endl;
+            }
         }
+        else
+        {
+            std::cout << "Incorrect input, try again!" << std::endl;
+        }
+        
     }
     
 }
