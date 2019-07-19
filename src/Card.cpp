@@ -3,21 +3,21 @@
 Card::Card(Suit suit, Value val) : suit(suit), val(val)
 {
     // validate suit
-    if (suit < 0 || suit > 3)
+    if (static_cast<int>(suit) < 0 || static_cast<int>(suit) > 3)
     {
-        this->suit = 0;
+        this->suit = Suit::SPADE;
     }
 
     // validate value
-    if (val < 1 || val > 13)
+    if (static_cast<int>(val) < 1 || static_cast<int>(val) > 13)
     {
-        this->val = 1;
+        this->val = Value::ACE;
     }
 
     // assign points based on value
-    if (this->val < 10)
+    if (static_cast<int>(this->val) < 10)
     {
-        this->point = static_cast<int>(this->val);
+        this->points = static_cast<int>(this->val);
     }
     else
     {
@@ -37,17 +37,17 @@ Card::Card(Suit suit, Value val) : suit(suit), val(val)
     }
 }
 
-const int getPoints() const
+const int Card::getPoints() const
 {
     return this->points;
 }
 
-const Suit getSuit() const
+const Suit Card::getSuit() const
 {
     return this->suit;
 }
 
-const Value getValue() const
+const Value Card::getValue() const
 {
-    return this-value;
+    return this->val;
 }

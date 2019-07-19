@@ -11,8 +11,8 @@ std::pair<int, int> Player::score() const
     int ans;
     for (Card c : hand)
     {
-        sum += static_cast<int>(c.val);
-        if (c.val == ACE)
+        sum += static_cast<int>(c.getValue());
+        if (c.getValue() == ACE)
         {
             std::cout << "1 or 11 points for the ACE?" << std::endl;
             std::cin >> ans;
