@@ -26,15 +26,11 @@ class Player
 
     const int score() const;
     const PlayerType getType() const;
-
     std::vector<Card> hand;
     Status status;
 
     private:
-    
     PlayerType type;
-    
-    
 };
 
 #endif

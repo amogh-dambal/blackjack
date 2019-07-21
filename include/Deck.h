@@ -18,7 +18,7 @@ class Deck
 
     friend std::ostream& operator<<(std::ostream& out, Deck& d)
     {
-        for (Card c : d.deck)
+        for (const Card& c : d.deck)
         {
             out << c << std::endl;
         }

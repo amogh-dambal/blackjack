@@ -34,8 +34,9 @@ class Card
 {
     public:
 
-    Card(Suit suit = Suit::SPADE, 
-    Value val = ACE);
+    Card(
+        Suit suit = Suit::SPADE, 
+        Value val = ACE);
 
     const int getPoints() const;
     const Suit getSuit() const; 
