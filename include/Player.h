@@ -24,7 +24,7 @@ class Player
     public:
     Player();
 
-    std::pair<int, int> score() const;
+    const int score() const;
 
     Status status;
     PlayerType type;

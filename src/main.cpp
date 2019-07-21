@@ -30,6 +30,9 @@ int main(int argc, char** argv)
     // if hit: 
     // deal card, update score
 
+    bj.checkScore(players[0]);
+    bj.checkScore(players[1]);
+
     while (!client.gameOver())
     {
         char ans = client.promptPlayer(); 
@@ -41,7 +44,7 @@ int main(int argc, char** argv)
             bj.checkScore(players[1]);
         }
 
-        else if (ans == 'p')
+        else if (ans == 's')
         {
             while (players[0].status == Status::Under)
             {

@@ -41,24 +41,18 @@ void Blackjack::showHand(const Player& p, PlayerType type, Turn turn)
 
 void Blackjack::checkScore(Player& p)
 {
-    std::pair<int, int> score = p.score();
-    if (score.first > 21 || score.second > 21)
+    int score = p.score();
+    if (score > 21)
     {
-        if (score.first < 21) 
-        {
-            score.second = score.first;
-        }
-        else if (score.second < 21)
-        {
-            score.first = score.second;
-        }
-        else
-        {
-            p.status = Status::Bust;
-        }
+        p.status = Status::Bust;
     }
-    else if (score.first == 21 || score.second == 21)
+    else if (score == 21)
     {
         p.status = Status::Win;
     }
+    else
+    {
+        p.status = Status::Under;
+    }
+    
 }
