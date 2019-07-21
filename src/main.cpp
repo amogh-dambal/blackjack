@@ -66,4 +66,6 @@ int main(int argc, char** argv)
 
     client.evaluateWinner();
     
+
+    return 0;
 }

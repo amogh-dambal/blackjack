@@ -26,8 +26,6 @@ void Blackjack::showHand(const Player& p, PlayerType type, Turn turn)
                 std::cout << c << " ";
             }
         }
-        
-        
     }
     else if (type == PlayerType::Human)
     {
