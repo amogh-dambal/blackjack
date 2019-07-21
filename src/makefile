@@ -24,3 +24,6 @@ clean:
 run:
 	./blackjack
 
+production:
+	rm ./blackjack
+
