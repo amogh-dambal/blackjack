@@ -10,7 +10,10 @@ void Blackjack::dealTo(Player& p)
     p.hand.push_back(deck.next());
 }
 
-void Blackjack::showHand(const Player& p, PlayerType type, Turn turn)
+void Blackjack::showHand(
+    const Player& p,
+    const PlayerType& type,
+    const Turn& turn) const
 {
     if (type == PlayerType::House)
     {
@@ -37,7 +40,7 @@ void Blackjack::showHand(const Player& p, PlayerType type, Turn turn)
     }
 }
 
-void Blackjack::updateScore(Player& p)
+void Blackjack::updateScore(Player& p) const
 {
     int score = p.score();
     if (score > 21)

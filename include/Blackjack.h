@@ -18,8 +18,11 @@ public:
     Blackjack();
 
     void dealTo(Player& p);
-    void showHand(const Player& p, PlayerType type, Turn turn = Turn::PreDeal);
-    void updateScore(Player& p);
+    void showHand(
+        const Player& p, 
+        const PlayerType& type, 
+        const Turn& turn = Turn::PreDeal) const;
+    void updateScore(Player& p) const;
     
 private:
     Deck deck;

@@ -9,7 +9,7 @@
 enum class PlayerType 
 {
     Human,
-    House
+    House,
 };
 
 enum class Status

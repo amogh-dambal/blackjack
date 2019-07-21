@@ -38,6 +38,7 @@ bool GameClient::gameOver() const
             return true;
         }
     }
+    return false;
 }
 
 const std::pair<PlayerType, int> GameClient::highestScoreType() const 
@@ -49,32 +50,51 @@ const std::pair<PlayerType, int> GameClient::highestScoreType() const
         if (p.score() > max)
         {
             max = p.score();
-            maxtype =  p.getType();
+            maxtype = p.getType();
         }
     }
-
     return std::make_pair(maxtype, max);
 }
 
 void GameClient::evaluateWinner() const
 {
+    std::pair<PlayerType, int> winner = highestScoreType();
+    std::string type;
+    if (winner.first == PlayerType::House)
+    {
+        type = "House";
+    }
+    else
+    {
+        type = "Human";
+    }
+
     if (this->gameOver()) 
     {
         for (const Player& p : this->players)
         {
+            std::string type;
+            if (p.getType() == PlayerType::House)
+            {
+                type = "House";
+            }
+            else
+            {
+                type = "Human";
+            }
             if (p.status == Status::Win)
             {
-                std::cout << static_cast<int>(p.getType()) << " has won!" << std::endl;
+                std::cout << type << " has won!" << std::endl;
             }
             else if (p.status == Status::Bust)
             {
-                std::cout << static_cast<int>(p.getType()) << " has bust!" << std::endl;
+                std::cout << type << " has bust!" << std::endl;
             }
         }
     }
     else 
     {
-        std::pair<PlayerType, int> winner = highestScoreType();
-        std::cout << static_cast<int>(winner.first) << " has won with a score of " << winner.second << " !" << std::endl;
+        
+        std::cout << type << " has won with a score of " << winner.second << " !" << std::endl;
     }
 }
