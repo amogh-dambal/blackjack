@@ -9,11 +9,6 @@
 #include <cctype>
 #include <string>
 
-enum class GameState
-{
-    InProgress,
-    Finished
-};
 class GameClient
 {
     public:
@@ -22,12 +17,12 @@ class GameClient
     // void start();
     std::vector<Player>& loadPlayers();  
     char promptPlayer();
-    bool gameOver();
-    
+    bool gameOver() const;
+    const std::pair<PlayerType, int> highestScoreType() const;
+    void evaluateWinner() const;
     
     private:
     std::vector<Player> players;
-    GameState state;
     
 };
 

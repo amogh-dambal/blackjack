@@ -15,3 +15,8 @@ const int Player::score() const
     }
     return sum;
 }
+
+const PlayerType Player::getType() const
+{
+    return this->type;
+}

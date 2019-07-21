@@ -19,7 +19,7 @@ public:
 
     void dealTo(Player& p);
     void showHand(const Player& p, PlayerType type, Turn turn = Turn::PreDeal);
-    void checkScore(Player& p);
+    void updateScore(Player& p);
     
 private:
     Deck deck;

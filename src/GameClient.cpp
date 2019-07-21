@@ -29,7 +29,7 @@ char GameClient::promptPlayer()
     return answerline[0];
 }
 
-bool GameClient::gameOver()
+bool GameClient::gameOver() const
 {
     for (const Player& p : players)
     {
@@ -38,5 +38,43 @@ bool GameClient::gameOver()
             return true;
         }
     }
-    return false;
+}
+
+const std::pair<PlayerType, int> GameClient::highestScoreType() const 
+{
+    PlayerType maxtype = PlayerType::House;
+    int max = 0;
+    for (const Player& p : this->players)
+    {
+        if (p.score() > max)
+        {
+            max = p.score();
+            maxtype =  p.getType();
+        }
+    }
+
+    return std::make_pair(maxtype, max);
+}
+
+void GameClient::evaluateWinner() const
+{
+    if (this->gameOver()) 
+    {
+        for (const Player& p : this->players)
+        {
+            if (p.status == Status::Win)
+            {
+                std::cout << static_cast<int>(p.getType()) << " has won!" << std::endl;
+            }
+            else if (p.status == Status::Bust)
+            {
+                std::cout << static_cast<int>(p.getType()) << " has bust!" << std::endl;
+            }
+        }
+    }
+    else 
+    {
+        std::pair<PlayerType, int> winner = highestScoreType();
+        std::cout << static_cast<int>(winner.first) << " has won with a score of " << winner.second << " !" << std::endl;
+    }
 }

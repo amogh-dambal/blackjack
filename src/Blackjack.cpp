@@ -39,7 +39,7 @@ void Blackjack::showHand(const Player& p, PlayerType type, Turn turn)
     }
 }
 
-void Blackjack::checkScore(Player& p)
+void Blackjack::updateScore(Player& p)
 {
     int score = p.score();
     if (score > 21)

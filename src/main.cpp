@@ -30,8 +30,8 @@ int main(int argc, char** argv)
     // if hit: 
     // deal card, update score
 
-    bj.checkScore(players[0]);
-    bj.checkScore(players[1]);
+    bj.updateScore(players[0]);
+    bj.updateScore(players[1]);
 
     while (!client.gameOver())
     {
@@ -40,19 +40,22 @@ int main(int argc, char** argv)
         if (ans == 'h')
         {
             bj.dealTo(players[1]);
+            bj.updateScore(players[1]);
             bj.showHand(players[1], PlayerType::Human);
-            bj.checkScore(players[1]);
+            
         }
 
         else if (ans == 's')
         {
-            while (players[0].status == Status::Under)
+            while (players[0].score() < 18)
             {
-                bj.checkScore(players[0]);
                 bj.dealTo(players[0]);
+                bj.updateScore(players[0]);
                 bj.showHand(players[0], PlayerType::House, Turn::PostPlayer); 
                 std::cout << std::endl;
             }
+
+            client.evaluateWinner();
         }
         else
         {
@@ -60,5 +63,7 @@ int main(int argc, char** argv)
         }
         
     }
+
+    client.evaluateWinner();
     
 }
